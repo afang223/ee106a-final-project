@@ -61,6 +61,8 @@ class PathPlanner(object):
 
         # Set the bounds of the workspace
         self._group.set_workspace([-2, -2, -2, 2, 2, 2])
+        
+        # self._group.set_goal_joint_tolerance(0.01)
 
         # Sleep for a bit to ensure that all inititialization has finished
         rospy.sleep(0.5)
@@ -74,7 +76,7 @@ class PathPlanner(object):
         self._group = None
         rospy.loginfo("Stopping Path Planner")
 
-    def plan_to_pose(self, target, orientation_constraints):
+    def plan_to_pose(self, target):
         """
         Generates a plan given an end effector pose subject to orientation constraints
 
@@ -86,12 +88,7 @@ class PathPlanner(object):
         path: A moveit_msgs/RobotTrajectory path
         """
 
-        self._group.set_pose_target(target)
-        self._group.set_start_state_to_current_state()
-
-        constraints = Constraints()
-        constraints.orientation_constraints = orientation_constraints
-        self._group.set_path_constraints(constraints)
+        self._group.set_joint_value_target(target)
 
         plan = self._group.plan()
 

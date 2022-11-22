@@ -4,7 +4,7 @@ rosrun intera_interface joint_trajectory_action_server.py
 roslaunch sawyer_moveit_config sawyer_moveit.launch electric_gripper:=true
 rosrun tf tf_echo base right_gripper_tip
 rosrun intera_interface enable_robot.py -e
-roslaunch intera_interface tuck_arms.launch
+roslaunch intera_examples sawyer_tuck.launch
 
 1) 0.650, -0.106, -0.103
 2) 0.635, 0.218, 0.172

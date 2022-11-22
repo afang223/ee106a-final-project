@@ -148,9 +148,6 @@ class Controller(object):
             # Get the input for this time
             u = self.step_control(t)
 
-            ## Force wrist to not move
-            u[-1] = 0.0
-
             # Set the joint velocities
             dic_vel = {self._limb.joint_names()[i]:float(u[i]) for i in range(len(self._limb.joint_names()))}
             self._limb.set_joint_velocities(dic_vel)
