@@ -1,1 +1,4 @@
 shh.txt
+build/*
+devel/*
+*.mp4
