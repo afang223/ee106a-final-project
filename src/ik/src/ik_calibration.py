@@ -38,9 +38,9 @@ PICK_UP_JOINT_STATE = [-0.448734375, -0.2357978515625, 0.0252958984375, 0.860584
 GRIPPER_SEQUENCE = [
     'open',
     'close',
-    'close',
-    'open',
-    'open',
+    # 'close',
+    # 'open',
+    # 'open',
 ]
 
 class IKCommand():
@@ -59,15 +59,13 @@ class IKCommand():
         self.right_gripper.calibrate()
         rospy.sleep(2.0)
 
-    def callback(self, message):
-        column = message.column
-        
+    def calibrate(self, column):
         joint_state_sequence = [
             NEUTRAL_JOINT_STATE,
-            PICK_UP_JOINT_STATE,
-            NEUTRAL_JOINT_STATE,
+            # PICK_UP_JOINT_STATE,
+            # NEUTRAL_JOINT_STATE,
             COLUMN_JOINT_STATES[column],
-            NEUTRAL_JOINT_STATE,
+            # NEUTRAL_JOINT_STATE,
         ]
 
         if not rospy.is_shutdown():
@@ -100,4 +98,6 @@ class IKCommand():
 if __name__ == "__main__":
     rospy.init_node('moveit_node')
     ik_command = IKCommand()
-    ik_command.listener()
+    while True:
+        col = int(input("Enter column number"))
+        ik_command.calibrate(col)
