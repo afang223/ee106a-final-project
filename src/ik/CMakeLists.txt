@@ -56,6 +56,7 @@ add_message_files(
   FILES
   board_row.msg
   board_state.msg
+  command.msg
 )
 
 ## Generate services in the 'srv' folder

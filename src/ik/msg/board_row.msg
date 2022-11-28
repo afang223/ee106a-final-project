@@ -1,0 +1,1 @@
+int8[7] board_row

@@ -41,6 +41,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ik/msg" TYPE FILE FILES
     "/home/cc/ee106a/fa22/class/ee106a-ahc/ros_workspaces/final_project/src/ik/msg/board_row.msg"
     "/home/cc/ee106a/fa22/class/ee106a-ahc/ros_workspaces/final_project/src/ik/msg/board_state.msg"
+    "/home/cc/ee106a/fa22/class/ee106a-ahc/ros_workspaces/final_project/src/ik/msg/command.msg"
     )
 endif()
 
