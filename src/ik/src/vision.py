@@ -548,9 +548,9 @@ if __name__ == '__main__':
     CIRCLE_PIXELS = int(0.93 * MULTIPLIER_LENGTH)
 
     MIN_RED_HSV = [(0, 70, 90), (130, 70, 90)]
-    MAX_RED_HSV = [(45, 255, 255), (180, 255, 255)]
+    MAX_RED_HSV = [(40, 255, 255), (180, 255, 255)]
 
-    MIN_YELLOW_HSV = [(45, 150, 150)]
+    MIN_YELLOW_HSV = [(40, 150, 150)]
     MAX_YELLOW_HSV = [(70, 255, 255)]
 
     YELLOW = -1

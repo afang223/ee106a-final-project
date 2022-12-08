@@ -2,9 +2,20 @@ source devel/setup.bash
 roscore
 rosrun intera_interface joint_trajectory_action_server.py
 roslaunch sawyer_moveit_config sawyer_moveit.launch electric_gripper:=true
-rosrun tf tf_echo base right_gripper_tip
 rosrun intera_interface enable_robot.py -e
+
+rosrun ik vision.py
+rosrun ik brain.py
+rosrun ik ik_command.py
+
+rosrun ik toggle_gripper.py
+rosrun ik ik_calibration_0.py
+rosrun ik ik_calibration.py
+
+## Misc
 roslaunch intera_examples sawyer_tuck.launch
+rostopic echo /robot/joint_states
+rosrun tf tf_echo base right_gripper_tip
 
 1) 0.650, -0.106, -0.103
 2) 0.635, 0.218, 0.172
